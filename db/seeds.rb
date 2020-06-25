@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-venom = 
+avengers = 
 {
     "Title": "The Avengers",
     "Year": "2012",
@@ -45,11 +45,29 @@ venom =
     "Production": "Walt Disney Pictures",
     "Website": "N/A",
     "Response": "True"
-}
+}.transform_keys(&:downcase)
 
-hash = JSON.parse(venom, symbolize_names: true)
+def picky_hash(hash)
+    new_hash = {}
+    new_hash[:title] = hash[:title]
+    new_hash[:year] = hash[:year]
+    new_hash[:rated] = hash[:rated]
+    new_hash[:runtime] = hash[:runtime]
+    new_hash[:director] = hash[:director]
+    new_hash[:plot] = hash[:plot]
+    new_hash[:poster] = hash[:poster]
+    new_hash[:response] = hash[:response]
+    new_hash[:actors] = hash[:actors]
 
-Movie.create(hash)
+  
+    new_hash
+end
+
+seed1 = picky_hash(avengers)
+
+# hash = JSON.parse(venom, symbolize_names: true)
+
+Movie.create(seed1)
 # Movie.create(
     # {"Title":"Venom",
     # "Year":"2018",
@@ -64,3 +82,4 @@ Movie.create(hash)
 # )
 
 # hash = JSON.parse(response, symbolize_names: true)
+
