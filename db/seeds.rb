@@ -11,6 +11,14 @@ robocop = {"Title":"RoboCop","Year":"1987","Rated":"R","Released":"17 Jul 1987",
 somelikeithot = {"Title":"Some Like It Hot","Year":"1959","Rated":"Not Rated","Released":"19 Mar 1959","Runtime":"121 min","Genre":"Comedy, Music, Romance","Director":"Billy Wilder","Writer":"Billy Wilder (screenplay), I.A.L. Diamond (screenplay), Robert Thoeren (suggested by a story by), Michael Logan (suggested by a story by)","Actors":"Marilyn Monroe, Tony Curtis, Jack Lemmon, George Raft","Plot":"After two male musicians witness a mob hit, they flee the state in an all-female band disguised as women, but further complications set in.","Language":"English","Country":"USA","Awards":"Won 1 Oscar. Another 14 wins & 15 nominations.","Poster":"https://m.media-amazon.com/images/M/MV5BNzAyOGIxYjAtMGY2NC00ZTgyLWIwMWEtYzY0OWQ4NDFjOTc5XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg","Ratings":[{"Source":"Internet Movie Database","Value":"8.2/10"},{"Source":"Rotten Tomatoes","Value":"95%"},{"Source":"Metacritic","Value":"98/100"}],"Metascore":"98","imdbRating":"8.2","imdbVotes":"234,934","imdbID":"tt0053291","Type":"movie","DVD":"22 May 2001","BoxOffice":"N/A","Production":"United Artists","Website":"N/A","Response":"True"}.transform_keys(&:downcase)
 zodiac = {"Title":"Zodiac","Year":"2007","Rated":"R","Released":"02 Mar 2007","Runtime":"157 min","Genre":"Crime, Drama, Mystery, Thriller","Director":"David Fincher","Writer":"James Vanderbilt (screenplay), Robert Graysmith (book)","Actors":"Jake Gyllenhaal, Mark Ruffalo, Anthony Edwards, Robert Downey Jr.","Plot":"In the late 1960s/early 1970s, a San Francisco cartoonist becomes an amateur detective obsessed with tracking down the Zodiac Killer, an unidentified individual who terrorizes Northern California with a killing spree.","Language":"English","Country":"USA","Awards":"3 wins & 71 nominations.","Poster":"https://m.media-amazon.com/images/M/MV5BN2UwNDc5NmEtNjVjZS00OTI5LWE5YjctMWM3ZjBiZGYwMGI2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg","Ratings":[{"Source":"Internet Movie Database","Value":"7.7/10"},{"Source":"Rotten Tomatoes","Value":"89%"},{"Source":"Metacritic","Value":"78/100"}],"Metascore":"78","imdbRating":"7.7","imdbVotes":"434,113","imdbID":"tt0443706","Type":"movie","DVD":"24 Jul 2007","BoxOffice":"$33,000,000","Production":"Paramount Pictures","Website":"N/A","Response":"True"}.transform_keys(&:downcase)
 
+avengers_review_1 = {"body": "Marvel killed it yet again", "movie_id": 1}
+avengers_review_2 = {"body": "Captain america was lit", "movie_id": 1}
+avengers_review_3 = {"body": "Joss is my son", "movie_id": 1}
+
+venom_review_1 = {"body": "Tom hardy is ma boi", "movie_id": 2}
+venom_review_2 = {"body": "They can't say symbiote correctly", "movie_id": 2}
+
+
 def picky_hash(hash)
     new_hash = {}
     new_hash[:title] = hash[:title]
@@ -27,15 +35,21 @@ def picky_hash(hash)
     new_hash
 end
 
-seed1 = picky_hash(avengers)
-seed2 = picky_hash(venom)
-seed3 = picky_hash(somelikeithot)
-seed4 = picky_hash(robocop)
-seed5 = picky_hash(zodiac)
+movie_seed_1 = picky_hash(avengers)
+movie_seed_2 = picky_hash(venom)
+movie_seed_3 = picky_hash(somelikeithot)
+movie_seed_4 = picky_hash(robocop)
+movie_seed_5 = picky_hash(zodiac)
 
 
-Movie.create(seed1)
-Movie.create(seed2)
-Movie.create(seed3)
-Movie.create(seed4)
-Movie.create(seed5)
+Movie.create(movie_seed_1)
+Movie.create(movie_seed_2)
+Movie.create(movie_seed_3)
+Movie.create(movie_seed_4)
+Movie.create(movie_seed_5)
+
+Review.create(avengers_review_1)
+Review.create(avengers_review_2)
+Review.create(avengers_review_3)
+Review.create(venom_review_1)
+Review.create(venom_review_2)
