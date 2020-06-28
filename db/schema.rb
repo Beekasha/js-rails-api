@@ -28,9 +28,11 @@ ActiveRecord::Schema.define(version: 2020_06_28_224007) do
 
   create_table "reviews", force: :cascade do |t|
     t.string "body"
-    t.integer "movie_id"
+    t.integer "movie_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["movie_id"], name: "index_reviews_on_movie_id"
   end
 
+  add_foreign_key "reviews", "movies"
 end
