@@ -4,13 +4,16 @@ class ReviewsController < ApplicationController
   # GET /reviews
   def index
     @reviews = Review.all
+    # @reviews = Review.find_by(params[:movie_id])
+    # @reviews = 
 
     render json: @reviews
   end
 
   # GET /reviews/1
   def show
-    render json: @review
+    @reviews = Review.where(movie_id: params[:id]) #route changed to get reviews by movie_id
+    render json: @reviews
   end
 
   # POST /reviews
